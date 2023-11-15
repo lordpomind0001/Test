@@ -1,11 +1,10 @@
 from flask import Flask, request, render_template
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from transformers import GPTNeoForCausalLM, GPT2Tokenizer
 
+model = GPTNeoForCausalLM.from_pretrained("EleutherAI/gpt-neo-1.3B")
+tokenizer = GPT2Tokenizer.from_pretrained("EleutherAI/gpt-neo-1.3B")
 app = Flask(__name__)
 
-# Load pre-trained model and tokenizer
-model = GPT2LMHeadModel.from_pretrained("EleutherAI/gpt-neo-1.3B")
-tokenizer = GPT2Tokenizer.from_pretrained("EleutherAI/gpt-neo-1.3B")
 
 @app.route('/')
 def home():
