@@ -27,4 +27,4 @@ def chat():
     return render_template('index.html', user_input=user_input, bot_response=generated_response)
 
 if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0", port=25565)
+    app.run(debug=True, host="172.174.215.233", port=80)
