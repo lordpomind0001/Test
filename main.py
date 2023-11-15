@@ -4,8 +4,8 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 app = Flask(__name__)
 
 # Load pre-trained GPT-2 model and tokenizer
-model = GPT2LMHeadModel.from_pretrained("gpt2")
-tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+model = GPT2LMHeadModel.from_pretrained("gpt2-xl")
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2-xl")
 
 @app.route('/')
 def home():
@@ -19,8 +19,7 @@ def chat():
     input_ids = tokenizer.encode(user_input, return_tensors="pt")
 
     # Generate code using GPT-2 model
-    output = model.generate(input_ids, max_length=150, num_beams=5, no_repeat_ngram_size=2, top_k=50, top_p=0.95, temperature=0.7)
-
+    output = model.generate(input_ids, max_length=100, num_beams=5, no_repeat_ngram_size=2, top_k=50, top_p=0.95, temperature=0.5)
     # Decode the generated code
     generated_code = tokenizer.decode(output[0], skip_special_tokens=True)
 
