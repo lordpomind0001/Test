@@ -4,8 +4,8 @@ from transformers import GPT2LMHeadModel, GPT2Tokenizer
 app = Flask(__name__)
 
 # Load pre-trained GPT-2 model and tokenizer
-model = GPT2LMHeadModel.from_pretrained("gpt2-xl")
-tokenizer = GPT2Tokenizer.from_pretrained("gpt2-xl")
+model = GPT2LMHeadModel.from_pretrained("gpt2-medium")
+tokenizer = GPT2Tokenizer.from_pretrained("gpt2-medium")
 
 @app.route('/')
 def home():
